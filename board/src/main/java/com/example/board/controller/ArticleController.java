@@ -38,7 +38,7 @@ public class ArticleController {
         // 레파지토리에 존재하는 save 메소드를 활용해서 db에 저장
         Article saved = articleRepository.save(article);
         System.out.println(saved.toString());
-        return "";
+        return "redirect:/articles/"+saved.getId();
     }
 
     @GetMapping("articles/{id}")
