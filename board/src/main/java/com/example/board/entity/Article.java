@@ -1,31 +1,25 @@
 package com.example.board.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.*;
 
+import javax.persistence.*;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
 @Entity
 public class Article {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column
     private Long id;
 
     @Column
     private String title;
 
-    public Article(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
 
     @Column
     private String content;
-
-
-
 
 }
