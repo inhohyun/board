@@ -1,17 +1,20 @@
 {{>layouts/header}}
 <!--form 태그를 보낼때는 어디로(action), 어떻게(method) 보낼지를 결정해줘야함 -->
-<form class="container" action="/articles/create" method="post">
+{{#article}}
+<form class="container" action="/articles/update" method="post">
+    <input name="id" type="hidden" value="{{id}}"/>
     <div class="mb-3">
         <label class="form-label">제목</label>
         <!-- dto와 같은 이름을 name에 지정해 줘야함-->
-        <input type="text" class="form-control" name="title">
+        <input type="text" class="form-control" name="title" value="{{title}}">
     </div>
     <div class="mb-3">
         <label class="form-label">내용</label>
 
-        <textarea class="form-control"rows="3" name="content"></textarea>
+        <textarea class="form-control"rows="3" name="content">{{content}}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-    <a href="/articles">Back</a>
+    <a href="/articles/{{id}}">Back</a>
 </form>
+{{/article}}
 {{>layouts/footer}}
